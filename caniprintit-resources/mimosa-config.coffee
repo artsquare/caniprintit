@@ -12,7 +12,7 @@ exports.config =
     ]
 
     jshint:
-      exclude: [],
+      exclude: ["public/bootstrap/bootstrap.min.js"],
       compiled: true,
       copied: true,
       vendor: false,
@@ -29,6 +29,7 @@ exports.config =
                 name: "vendor/requirejs/require"
                 
     csslint:
+        exclude: ["public/bootstrap/bootstrap.min.css"]
         compiled: false
 
     watch:
