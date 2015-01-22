@@ -1,11 +1,11 @@
-'use strict';
-
 define(['printanalyzer/DPI'], function(DPI) {
+    'use strict';
+
     function AspectRatio(label, ratio, sizes) {
         this.label = label;
         this.ratio = ratio;
         this.sizes = sizes;
-    };
+    }
 
     AspectRatio.prototype.toString = function() {
         return "AspectRatio[" + this.label + ", " + this.ratio.toFixed(3) + "]";

@@ -1,6 +1,6 @@
-'use strict';
-
 define(['printanalyzer/AspectRatio'], function(AspectRatio) {
+    'use strict';
+
     return {
         RATIOS: [
             new AspectRatio("square", 1,     [[12, 12], [14, 14], [16, 16], [18, 18], [20, 20], [24, 24], [30, 30], [36, 36], [40, 40]]),

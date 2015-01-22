@@ -1,6 +1,6 @@
-'use strict';
-
 define(['printanalyzer/dataTable', 'printanalyzer/AspectRatio'], function(dataTable, AspectRatio) {
+    'use strict';
+
     var MAX_VARIANCE = 0.05;
 
     return function(dimension1, dimension2) {
@@ -17,7 +17,7 @@ define(['printanalyzer/dataTable', 'printanalyzer/AspectRatio'], function(dataTa
             }
         });
 
-        if(bestRatio == null) {
+        if(bestRatio === null) {
             return null;
         } else {
             return { ratio: bestRatio, difference: bestDifference };
