@@ -21,8 +21,7 @@ exports.config =
 
     bower:
         copy:
-            mainOverrides:
-                "bootstrap-less": ["less"]
+            mainOverrides: {}
 
     require:
         optimize:

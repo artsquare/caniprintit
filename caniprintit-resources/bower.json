@@ -1,7 +1,6 @@
 {
   "name": "caniprintit-resources",
   "dependencies": {
-    "bootstrap-less": "3.3.2",
     "requirejs": "~2.1.15"
   },
   "devDependencies": {
