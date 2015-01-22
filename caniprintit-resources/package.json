@@ -1,0 +1,26 @@
+{
+  "version": "0.0.1",
+  "name": "@artsquare/caniprintit-resources",
+  "description": "Can I Print It? frontend resources",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/artsquare/caniprintit"
+  },
+  "devDependencies": {
+    "mimosa": "2.3.26",
+    "mimosa-coffeescript": "*",
+    "mimosa-less": "*",
+
+    "karma": "^0.12.24",
+    "karma-cli": "0.0.4",
+    "karma-jasmine": "^0.1.5",
+    "karma-requirejs": "^0.2.2",
+    "karma-junit-reporter": "~0.2",
+
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-phantomjs-launcher": "^0.1.4"
+  },
+  "dependencies": {
+    "requirejs": "^2.1.15"
+  }
+}

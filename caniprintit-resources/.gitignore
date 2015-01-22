@@ -1,0 +1,8 @@
+.externalToolBuilders
+.mimosa
+*.log
+bower_components
+node_modules
+
+assets/**/vendor
+vendor/      # pulled out from assets/**/vendor because EGit blows up on ** in paths
