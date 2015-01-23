@@ -1,0 +1,138 @@
+body {
+    background-color: white;
+    font-family: "Source Sans Pro", Helvetica, Verdana, sans-serif;
+}
+.printSuccess, .printLowRes, .badImages {
+    display: none;
+}
+.yes, .no, .badImages {
+    margin-top: 5%;
+}
+.print-sizes {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 6%;
+}
+.action {
+    margin-top: 4%;
+}
+.col-xs-4 {
+    border-radius: 6px;
+}
+h1 {
+    font-size: 46px;
+    font-weight: thin;
+    color: #5c008f;
+}
+
+.as-title {
+    margin-top: 30%;
+    @media(min-width: 600px) { margin-top: 20%; }
+    @media(min-width: 768px) { margin-top: 18%; }
+    @media(min-width: 992px) { margin-top: 15%; }
+    @media(min-width: 1200px) { margin-top: 13%; }
+    letter-spacing: 1px;
+}
+p {
+	font-size: 20px;
+}
+.glyphicon-heart {
+    color: #c0392b;
+}
+.btn-default {
+    transition: 0.5s;
+    background-color: #5c008f;
+    border: 1px white;
+    width: 27%;
+    color: white;
+}
+.btn-default:hover {
+    background-color: white;
+    border: 1px solid #5c008f;
+    color: #5c008f;
+}
+.landscape {
+    position: relative;
+    margin-top: 2.5%;
+    fill: blue;
+}
+.upload {
+    position: relative;
+    border: 3px dashed #5c008f;
+    color: #5c008f;
+    border-radius: 14px;
+    margin-top: 5%;
+    input[type=file] {
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 100%;
+        min-height: 100%;
+        outline: none;
+        cursor: pointer;
+        display: block;
+        opacity: 0;
+    }
+}
+.upload-title {
+    margin-top: 2%;
+    font-size: 28px;
+}
+.printable {
+    border: 3px solid #5dbc00;
+    border-radius: 8px;
+}
+.un-printable {
+    border: 3px solid #bc0011;
+    border-radius: 8px;
+}
+.question-mark {
+    position: relative;
+    margin-top: -700px;
+    z-index: 100;
+    right: 0;
+    color: black;
+    font-size: 80px;
+}
+.icon-success, .icon-failure {
+    top: -30px;
+    right: -10px;
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transform: scale(1.1);
+    z-index: 1;
+    background-color: white;
+    border-radius: 1000px;
+}
+.icon-success {
+    padding: 10px;
+    border: 2px solid #5dbc00;
+    img {
+        top: -4px;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+.icon-success img, .icon-failure img {
+    position: absolute;
+}
+.icon-failure {
+    padding: 10px;
+    border: 2px solid #bc0011;
+    img {
+        left: 16px;
+        top: 5px;
+    }
+}
+footer {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    background-color: black;
+}
+
