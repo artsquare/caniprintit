@@ -21,6 +21,7 @@ require.config({
     baseUrl: '/base/target/classes/public/js',
 
     paths: {
+        vow: 'vendor/vow/lib/vow',
         test: '/base/test'
     },
 

@@ -12,16 +12,21 @@ exports.config =
     ]
 
     jshint:
-      exclude: ["public/bootstrap/bootstrap.min.js"],
-      compiled: true,
-      copied: true,
-      vendor: false,
-      jshintrc: ".jshintrc",
-      rules: {}
+        exclude: [
+            "public/bootstrap/bootstrap.min.js"
+            "public/js/tiff-js/TIFFParser.js"
+        ],
+        compiled: true,
+        copied: true,
+        vendor: false,
+        jshintrc: ".jshintrc",
+        rules: {}
 
     bower:
         copy:
-            mainOverrides: {}
+            strategy: "none"
+            mainOverrides:
+                when: ["when.js", "lib/"]
 
     require:
         optimize:

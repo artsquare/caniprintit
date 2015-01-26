@@ -46,7 +46,7 @@ define (['printanalyzer/AspectRatio', 'printanalyzer/DPI'], function (AspectRati
             var dimensions = {width: 400, height: 400};
             var sizes = ONE.findSizes(dimensions, 100, 200);
             expect(sizes[DPI.GOOD].length).toEqual(1);
-            expect(sizes[DPI.GOOD][0]).toEqual([1,1]);
+            expect(sizes[DPI.GOOD][0]).toEqual({dpi: 400, inches: [1,1]});
 
             expect(sizes[DPI.OKAY].length).toEqual(1);
             expect(sizes[DPI.BAD].length).toEqual(2);
@@ -56,7 +56,7 @@ define (['printanalyzer/AspectRatio', 'printanalyzer/DPI'], function (AspectRati
             var dimensions = {width: 420, height: 400};
             var sizes = ONE.findSizes(dimensions, 100, 300);
             expect(sizes[DPI.GOOD].length).toEqual(1);
-            expect(sizes[DPI.GOOD][0]).toEqual([1,1]);
+            expect(sizes[DPI.GOOD][0]).toEqual({dpi: 400, inches: [1,1]});
 
             expect(sizes[DPI.OKAY].length).toEqual(1);
             expect(sizes[DPI.BAD].length).toEqual(2);
