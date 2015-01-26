@@ -1,10 +1,199 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Can I Print It</title>
+	<title>Can I Print It</title>
+	<link rel="stylesheet" type="text/css" href="/css/index.css" />
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" />
+	<!-- <link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap.min.css" /> -->
 </head>
-
 <body>
-<h1>Maybe</h1>
+	<div class="wrapper">
+		<div class="nav">
+			<div class="row">
+				<span class="social pull-left">
+					<a href=""><div class="social-icon"><img src="https://s3-us-west-2.amazonaws.com/asq-tmp-dev/facebook.svg" width='30px' /></div></a>
+					<a href=""><div class="social-icon"><img src="https://s3-us-west-2.amazonaws.com/asq-tmp-dev/twitter.svg" width='30px' /></div></a>
+				</span>
+				<span class="upload-your-image pull-left hidden">
+					<button class='btn btn-default btn-back'>Test Another Image</button>
+				</span>
+				<span class="faq pull-right">
+					<a href="#">FAQ</a>
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12 text-center title">
+			</div>
+		</div>
+		<div class="loader text-center">
+			<i class='fa fa-circle-o-notch fa-spin'></i>
+		</div>
+		<div class="content">
+
+			<div class="upload-images container">
+				<div class="row">
+					<div class="col-sm-12 text-center as-title">
+						<h1>Can I Print It?</h1>
+						<p>Instantly see if your images are ready for print. It's free!</p>
+					</div>
+				</div>
+				<div class='row upload-fields'>
+					<div class="col-xs-12 col-sm-6 col-lg-offset-2 col-lg-4">
+						<div class="upload text-center">
+							<img src="https://s3-us-west-2.amazonaws.com/asq-tmp-dev/landscape.svg" class='landscape' width='80' />
+							<div class="upload-title">
+								<strong>&plus;</strong>
+								<span>Add Your File</span>
+							</div>
+							<input type="file" accept="image/*" />
+						</div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-lg-4">
+						<form class="form-horizontal">
+							<input type="hidden" name="goodDPI" value='150' />
+							<input type="hidden" name="okayDPI" value='120' />
+							<div class="form-group">
+								<label for="fileName" class="col-sm-4 control-label">Image</label>
+								<div class="col-sm-8">
+									<p class='form-control-static'>FileName.jpg</p>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="width" class="col-sm-4 control-label">Width</label>
+								<div class="col-sm-8">
+									<input name="width" type="number" class="form-control" min='1' id='widthInput' />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="height" class="col-sm-4 control-label">Height</label>
+								<div class="col-sm-8">
+									<input name="height" type="number" class="form-control" min='1' />
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="printSuccess container hidden">
+				<div class="row">
+					<div class="col-xs-12 text-center yes">
+						<h1>Yes!</h1>
+						<h3>This image is fit to print!</h3>
+					</div>
+				</div>
+				<div class="text-center row">
+					<div class="col-xs-12">
+						<div class="print-sizes">
+							<div class="col-sm-4 col-xs-12">
+								<div class="printable"><h1>10" X 12"</h1>
+									<p>DPI: 1500</p>
+									<p>Aspect Ratio: 1.6</p>
+									<div class="icon-success"><img src="https://s3-us-west-2.amazonaws.com/asq-tmp-dev/Check.svg" width="45px" />
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 col-xs-12">
+								<div class="printable"><h1>10" X 12"</h1>
+									<p>DPI: 1500</p>
+									<p>Aspect Ratio: 1.6</p>
+									<div class="icon-success"><img src="https://s3-us-west-2.amazonaws.com/asq-tmp-dev/Check.svg" width="45px" />
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-4 col-xs-12">
+								<div class="un-printable">
+									<h1>12" X 13"</h1>
+									<p>DPI: 20000</p>
+									<p>Aspect Ratio: 1.6</p>
+									<div class="icon-failure">
+										<img src="https://s3-us-west-2.amazonaws.com/asq-tmp-dev/Exclamation.svg" width="13px" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="action col-xs-12 text-center">
+						<h3><b>Want better prints of your art?</b></h3>
+						<a href="https://artsquare.com"><button class='btn btn-lg btn-default as-action'>Get High-Res Images!</button></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="printLowRes hidden">
+				<div class="row pulse">
+					<div class="col-xs-12 text-center no">
+						<h1>Sorry!</h1>
+						<h3>It looks like this image is too low-res to print</h3>
+					</div>
+				</div>
+				<div class="text-center row">
+					<div class="col-xs-12">
+						<div class="print-sizes">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="action col-xs-12 text-center">
+						<h3><b>Want better prints of your art?</b></h3>
+						<a href="https://artsquare.com"><button class='btn btn-lg btn-default'>Get High-Res Images!</button></a>
+					</div>
+				</div>
+			</div>
+
+			<div class="badImages hidden">
+				<div class="row pulse">
+					<div class="col-xs-12 text-center no">
+						<h1>Sorry!</h1>
+						<h3>It looks like this file doesn't qualify for high-quality print.</h3>
+						<h3>Need help? ArtSquare can turn your art into high-quality files fit for print!</h3>
+					</div>
+				</div>
+				<div class="row">
+					<div class="action col-xs-12 text-center">
+						<h3><b>Want better prints of your art?</b></h3>
+						<a href="https://artsquare.com"><button class='btn btn-lg btn-default'>Get High-Res Images!</button></a>
+					</div>
+				</div>
+			</div>
+			<div class="push"></div>
+			<footer class="about-wrapper">
+				<hr/>
+				<div class="row">
+					<div class="col-sm-12 text-center made-by">
+						<p>Made with <i class="fa fa-heart-o"></i> by <a href="https://artsquare.com" target="_blank">ArtSquare</a></p>
+					</div>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<div id="faq">
+		<div class="ex"><i class="fa fa-times"></i></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 text-center faq-title">
+					<h1>ArtSquare</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<h2>About</h2>
+					<p>ArtSquare is a service that helps artists get their artwork from canvas to the web by connecting them to digitizers in their area. We want artists to get their work out into the world, and we're here to make that process as easy as possible.</p>
+					<h2>Why 'Can I Print It?'</h2>
+					<p>Artists need to understand that their artwork images must be high-quality in order to assure quality prints. We've built this tool to aid you with your existing images that may or may not be properly cropped, lighted, etc.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
+	<script src="/js/common.js"></script>
+	<script>
+		require(['cipi/main'])
+	</script>
 </body>
 </html>
