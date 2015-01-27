@@ -11,12 +11,10 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
                 if (AR) {
                     return AR.ratio.findSizes({width: val[0], height: val[1]}, 130, 150);
                 } else {
-                    // raise bad dimension error
-                    console.log("Bad dimensions");
+                    view.showBadImageError();
                 }
             }).then(function(sizes) {
                 view.showSizes(selectSizes(3, sizes));
-                // console.log(selectSizes(3, sizes))
             });
         }
         //reading from form changes
@@ -29,19 +27,23 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
         
         var both = bacon.combineAsArray(width, height);
         both.onValue(function(val) {
+            $('#filename').text('--');
             getImageSizes(val);
         });
 
     // filling in form values from file input change
     function fillInForm(width, height) {
-        $('#widthInput').val(width)
+        $('#widthInput').val(width);
         $('#heightInput').val(height);
+        var input = $("input[type=file]").val().split('\\')[2];
+        $('#filename').text(input);
         both = bacon.combineAsArray(width, height);
         both.onValue(function(val) {
             getImageSizes(val);
         });
     }
     var input = $("input[type=file]").asEventStream('change').map(function(e) {
+        view.showLoader();
         return getImageDimensions(e.target.files[0]);
     });
     input.onValue(function(val) {

@@ -1,9 +1,13 @@
-.template {display: none;}
+.template, .badImageError {display: none;}
+.badImageError {
+	position: absolute !important;
+	color: #bc0011;
+}
+#wait {position: absolute;}
 .loader {
 	display: none;
-	position: absolute;
 	margin: auto;
-	top: 40%; left: 0; bottom: 0; right: 0;
+	top: 70%; left: 0; bottom: 0; right: 0;
 	z-index: 500;
 }
 .fa-circle-o-notch {
