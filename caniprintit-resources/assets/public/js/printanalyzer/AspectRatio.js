@@ -4,7 +4,7 @@ define(['printanalyzer/DPI'], function(DPI) {
     function AspectRatio(label, ratio, sizes) {
         this.label = label;
         this.ratio = ratio;
-        this.sizes = sizes;
+        this.sizes = sizes ? sizes : [];
     }
 
     AspectRatio.prototype.toString = function() {
