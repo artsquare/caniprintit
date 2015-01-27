@@ -17,7 +17,8 @@
     "karma-requirejs": "^0.2.2",
     "mimosa": "2.3.26",
     "mimosa-coffeescript": "*",
-    "mimosa-less": "*"
+    "mimosa-less": "*",
+    "phantomjs": "1.9.13"
   },
   "dependencies": {
     "requirejs": "^2.1.15"
