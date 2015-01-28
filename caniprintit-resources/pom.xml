@@ -4,7 +4,7 @@
     <parent>
         <groupId>com.artsquare.cipi</groupId>
         <artifactId>caniprintit</artifactId>
-        <version>2015.1.28-11</version>
+        <version>2015.1.28-13</version>
     </parent>
 
     <artifactId>caniprintit-resources</artifactId>
