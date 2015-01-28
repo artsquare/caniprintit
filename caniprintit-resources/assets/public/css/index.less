@@ -121,8 +121,11 @@ h1 {
 	font-size: 28px;
 }
 .template {
-	margin-top: 6%;
-	.yes {margin-bottom: 30px;}
+	position: relative;
+	.print-sizes .col-sm-4 {
+		margin-top: 10%;
+		@media(min-width: 768px) {margin-top: 8%;}
+	}
 }
 .icon-success, .icon-failure, .icon-okay {
 	top: -30px;
