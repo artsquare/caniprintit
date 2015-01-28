@@ -35,7 +35,7 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
         function fillInForm(width, height) {
             $('#widthInput').val(width);
             $('#heightInput').val(height);
-            var input = $("input[type=file]").val().split('\\')[2];
+            var input = $("input[type=file]")[0].files[0].name;
             $('#filename').text(input);
             both = bacon.combineAsArray(width, height);
             both.onValue(function(val) {
