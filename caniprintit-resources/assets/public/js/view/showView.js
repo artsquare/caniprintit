@@ -1,23 +1,21 @@
 define(['jquery', 'view/printSizeView'], function($, printSize) {
-	
-	function createDomNodes (sizes) {
-		for (var i in sizes) {
-			var size = sizes[i];
-			var domNode = printSize(size.quality, size.inches, size.dpi);
-			$("#" + i).html(domNode);
-		}
-	}
-	return {
-		showSizes: function(sizes) {
+    
+    function createDomNodes (sizes) {
+        for (var i in sizes) {
+            var size = sizes[i];
+            var domNode = printSize(size.quality, size.inches, size.dpi);
+            $("#" + i).html(domNode);
+        }
+    }
+    return {
+        showSizes: function(sizes) {
             $('.loader').hide();
-            $('form').fadeIn();
-			$('.template').show();
+            $('.template').show();
             $('.badImageError').fadeOut();
             createDomNodes(sizes);
-		},
-		showBadImageError: function() {
+        },
+        showBadImageError: function() {
             $('.loader').hide();
-            $('form').fadeIn();
             $('.badImageError').fadeIn();
         },
         showLoader: function() {
@@ -29,6 +27,6 @@ define(['jquery', 'view/printSizeView'], function($, printSize) {
                     wait.innerHTML += ".";
             }, 200);
             $(".loader").fadeIn();
-		}
+        }
     };
 });
