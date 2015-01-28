@@ -1,4 +1,4 @@
-define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printanalyzer/AspectRatio', 'vow', 'filereader/getImageDimensions'], function($, bacon, bjq, findBestAR, AspectRatio, vow, getImageDimensions) {    
+define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printanalyzer/AspectRatio', 'vow', 'filereader/getImageDimensions', 'cipi/selectSizes', 'view/showView'], function($, bacon, bjq, findBestAR, AspectRatio, vow, getImageDimensions, selectSizes, view) {    
     $(document).ready(function() {
         function getImageSizes(val) {
             return new vow.Promise(function(resolve, reject){
@@ -11,10 +11,10 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
                 if (AR) {
                     return AR.ratio.findSizes({width: val[0], height: val[1]}, 130, 150);
                 } else {
-                    console.log("Bad dimensions");
+                    view.showBadImageError();
                 }
             }).then(function(sizes) {
-                console.log(sizes);
+                view.showSizes(selectSizes(3, sizes));
             });
         }
         //reading from form changes
@@ -27,25 +27,29 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
         
         var both = bacon.combineAsArray(width, height);
         both.onValue(function(val) {
+            $('#filename').text('--');
             getImageSizes(val);
         });
 
     // filling in form values from file input change
     function fillInForm(width, height) {
-        $('#widthInput').val(width)
+        $('#widthInput').val(width);
         $('#heightInput').val(height);
+        var input = $("input[type=file]").val().split('\\')[2];
+        $('#filename').text(input);
         both = bacon.combineAsArray(width, height);
         both.onValue(function(val) {
             getImageSizes(val);
         });
     }
     var input = $("input[type=file]").asEventStream('change').map(function(e) {
+        view.showLoader();
         return getImageDimensions(e.target.files[0]);
     });
     input.onValue(function(val) {
         val.then(function(dimensions) {
             fillInForm(dimensions.width, dimensions.height);
-        })
+        });
         });
     });
 });

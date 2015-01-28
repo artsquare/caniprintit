@@ -1,8 +1,13 @@
+.template, .badImageError {display: none;}
+.badImageError {
+	position: absolute !important;
+	color: #bc0011;
+}
+#wait {position: absolute;}
 .loader {
 	display: none;
-	position: absolute;
 	margin: auto;
-	top: 40%; left: 0; bottom: 0; right: 0;
+	top: 70%; left: 0; bottom: 0; right: 0;
 	z-index: 500;
 }
 .fa-circle-o-notch {
@@ -29,7 +34,7 @@ body {
 .wrapper {
 	border: 15px solid #f9f9f9;
 	@media(min-width: 768px) {
-		border: 15px solid white;
+		border: 15px solid #f9f9f9;
 		padding: 10px;
 		height: 100%;
 		position: absolute;
@@ -38,6 +43,9 @@ body {
 	li {
 		display: inline-block;
 	}
+}
+form {
+	display: none;
 }
 .faq {
 	display: inline;
@@ -74,7 +82,7 @@ hr {
 	@media(min-width: 480px) {margin-top: 28%;}
 	@media(min-width: 600px) {margin-top: 25%;}
 	@media(min-width: 780px) {margin-top: 15%;}
-	@media(min-width: 1200px) {margin-top: 4%;}
+	@media(min-width: 1200px) {margin-top: 2%;}
 }
 h1 {
 	font-weight: 300 !important;
@@ -89,7 +97,7 @@ h1 {
 	fill: blue;
 }
 .upload-fields {
-	margin-top: 4%;
+	// margin-top: 4%;
 	form {
 		margin-top: 4%;
 	}
@@ -99,7 +107,7 @@ h1 {
 	border: 3px dashed #5c008f;
 	color: #5c008f;
 	border-radius: 14px;
-	margin-top: 8%;
+	margin-top: 6%;
 	// height: 300px;
 }
 .upload input[type=file] {
@@ -117,11 +125,11 @@ h1 {
 	margin-top: 2%;
 	font-size: 28px;
 }
-.printSuccess {
-	margin-top: -4%;
+.template {
+	margin-top: 6%;
 	.yes {margin-bottom: 30px;}
 }
-.icon-success, .icon-failure {
+.icon-success, .icon-failure, .icon-okay {
 	top: -30px;
 	right: -10px;
 	position: absolute;
@@ -136,7 +144,7 @@ h1 {
 	padding: 10px;
 	border: 2px solid #5dbc00;
 }
-.icon-success img, .icon-failure img {
+.icon-success img, .icon-failure img, .icon-okay img{
 	position: absolute;
 }
 .icon-success img {
@@ -145,6 +153,17 @@ h1 {
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
+}
+.icon-okay img {
+	top: -4px;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+}
+.icon-okay {
+	padding: 10px;
+	border: 2px solid #FFFF61;
 }
 .icon-failure {
 	padding: 10px;
@@ -157,11 +176,15 @@ h1 {
 	margin-left: auto;
 	margin-right: auto;
 }
-.printable {
+.good {
 	border: 3px solid #5dbc00;
 	border-radius: 8px;
 }
-.un-printable {
+.okay {
+	border: 3px solid yellow;
+	border-radius: 8px;
+}
+.bad {
 	border: 3px solid #bc0011;
 	border-radius: 8px;
 }
@@ -171,7 +194,7 @@ h1 {
 .about-wrapper {
 	position: relative;
 	width: 100%;
-	height: 150px;
+	bottom: 0;
 	.about {font-size: 20px; }
 	.made-by {font-size: 20px !important;}
 }
