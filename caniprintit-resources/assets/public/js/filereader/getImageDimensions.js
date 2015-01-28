@@ -2,7 +2,7 @@
  * Loads an image from a JavaScript File object and returns a promise yielding the dimensions
  * as 'height' and 'width'. We are not currently attempting to display a thumbnail of the image.
  */
-define(['vow', 'tiff-js/TIFFParser'], function(vow, TIFFParser) {
+define(['vow', 'tiff'], function(vow, TIFFParser) {
     'use strict';
 
     function readNative(blob, resolve, reject) {
@@ -33,9 +33,8 @@ define(['vow', 'tiff-js/TIFFParser'], function(vow, TIFFParser) {
         var reader = new FileReader();
 
         reader.onload = function(e) {
-            var parser = new TIFFParser();
-            var canvas = parser.parseTIFF(e.target.result);
-            resolve(canvas);
+            var parser = new Tiff({buffer: e.target.result})
+            resolve({ width: parser.width(), height: parser.height() });
         };
 
         reader.onerror = function(e) {
