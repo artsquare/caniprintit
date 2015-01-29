@@ -12,12 +12,23 @@
 	<!-- <link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap.min.css" /> -->
 </head>
 <body>
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
 	<div class="wrapper">
 		<div class="nav">
 			<div class="row">
 				<span class="social pull-left">
-					<a href=""><i class="fa fa-facebook social-icon"></i></a>
-					<a href=""><i class="fa fa-twitter social-icon"></i></a>
+					<script>
+						window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+					</script>
+					<a href="http://www.facebook.com/sharer/sharer.php?u=https://caniprint.it&amp;title=Check out this awesome app!"><i class="fa fa-facebook social-icon"></i></a>
+					<a href="http://twitter.com/intent/tweet?status=Check out this awesome app! + https://caniprint.it"><i class="fa fa-twitter social-icon"></i></a>
 				</span>
 				<span class="faq pull-right">
 					<a href="#">FAQ</a>
@@ -84,13 +95,13 @@
 					<div class="col-xs-12">
 						<div class="print-sizes">
 							<div class="col-sm-4 col-xs-12" id='0'>
-								
+
 							</div>
 							<div class="col-sm-4 col-xs-12" id='1'>
-								
+
 							</div>
 							<div class="col-sm-4 col-xs-12" id='2'>
-								
+
 							</div>
 						</div>
 					</div>
@@ -129,18 +140,18 @@
 						the Web by connecting them with digitizers in their area. We want artists
 						to get their work out into the world, and we're here to make that process
 						as easy as possible.</p>
-					<h2>Why 'Can I Print It?'</h2>
-					<p>Artists need high-quality images to assure high-quality prints. We've built
-						this tool to help identify whether your existing images are high enough
-						resolution to print.</p>
+						<h2>Why 'Can I Print It?'</h2>
+						<p>Artists need high-quality images to assure high-quality prints. We've built
+							this tool to help identify whether your existing images are high enough
+							resolution to print.</p>
+						</div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
-	<script src="/js/common.js"></script>
-	<script>
-		require(['cipi/main']);
-	</script>
-</body>
-</html>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
+			<script src="/js/common.js"></script>
+			<script>
+				require(['cipi/main']);
+			</script>
+		</body>
+		</html>
