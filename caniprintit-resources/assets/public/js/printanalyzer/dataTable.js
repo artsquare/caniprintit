@@ -11,6 +11,7 @@ define(['printanalyzer/AspectRatio'], function(AspectRatio) {
             new AspectRatio("3:4",    4/3,   [[12, 9],  [16, 12], [20, 15], [24, 18], [40, 30]]),
             new AspectRatio("2:3",    3/2,   [[12, 8],  [18, 12], [20, 16], [30, 20], [36, 24]]),
             new AspectRatio("11:17",  17/11, [[17, 11], [34, 22]]),
+            new AspectRatio("16:9",   16/9,  [[12, 6.75], [16, 9], [24, 13.5], [36, 20.25]]),
             new AspectRatio("2:1",    2,     [[20, 10], [24, 12], [30, 15], [40, 20]])
         ]
     };
