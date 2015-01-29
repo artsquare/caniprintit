@@ -5,9 +5,11 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
     $(document).ready(function() {
         $('.faq').click(function() {
             $('#faq').fadeIn();
+            $('.content').hide();
         });
         $('#faq').click(function() {
             $('#faq').fadeOut();
+            $('.content').show();
         })
         function getImageSizes(val) {
             return new vow.Promise(function(resolve, reject){
