@@ -1,6 +1,10 @@
 define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printanalyzer/AspectRatio',
     'vow', 'filereader/getImageDimensions', 'cipi/selectSizes', 'view/showView'],
-    function($, bacon, bjq, findBestAR, AspectRatio, vow, getImageDimensions, selectSizes, view) {
+    function($, Bacon, bjq, findBestAR, AspectRatio, vow, getImageDimensions, selectSizes, view) {
+
+    function formatCrop(crop) {
+        return (undefined === crop || isNaN(crop)) ? '--' : (crop * 100).toFixed(1) + "%";
+    }
 
     $(document).ready(function() {
         
@@ -13,55 +17,49 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
             $('#faq').fadeOut();
         });
 
-        function getImageSizes(val) {
-            return new vow.Promise(function(resolve, reject){
-                if (val[0] > 0 && val[1] > 0) {
-                    resolve(findBestAR(val[0], val[1]));
-                } else {
-                    reject(new Error("The dimensions [" + val[0] + ", " + val[1] + "] must be positive."));
-                }
-            }).then(function(bestAspectRatio) {
-                if (bestAspectRatio) {
-                    return bestAspectRatio.ratio.findSizes({width: val[0], height: val[1]}, 130, 150);
-                } else {
-                    view.showBadImageError();
-                }
-            }).then(function(sizes) {
-                view.showSizes(selectSizes(3, sizes));
-            });
-        }
+        // form field Models and their values mapped as integers
+        var widthField = bjq.textFieldValue($('#widthInput'), "");
+        var width = widthField.changes().map(parseInt).debounce(300).skipDuplicates();
 
-        //reading from form changes
-        var width = bjq.textFieldValue($('#widthInput')).changes().map(parseInt);
-        var height = bjq.textFieldValue($('#heightInput')).changes().map(parseInt);
-        
-        var both = bacon.combineAsArray(width, height);
-        both.onValue(function(val) {
-            $('#filename').text('--');
-            getImageSizes(val);
+        var heightField = bjq.textFieldValue($('#heightInput'), "");
+        var height = heightField.changes().map(parseInt).debounce(300).skipDuplicates();
+
+        // update the dimensions atomically when setting from a file input
+        var dimensions = Bacon.combineTemplate({ width: width, height: height }).debounce(10);
+
+        var inputFile = $('#fileInput').changeE().map('.target.files.0');
+
+        // stream to reset the filename field on manual entry
+        var nameReset = Bacon.mergeAll(
+                $('#widthInput').focusinE(),
+                $('#heightInput').focusinE()).
+            map("manual size");
+
+        Bacon.mergeAll(inputFile.map('.name'), nameReset).
+            assign($('#filename'), 'text');
+
+        // property that represents the latest set of dimensions extracted from the file
+        var fileDimensions = inputFile.map(getImageDimensions).flatMapLatest(Bacon.fromPromise);
+        // update the form whenever a new image gets analyzed
+        widthField.addSource(fileDimensions.map(".width"));
+        heightField.addSource(fileDimensions.map(".height"));
+
+        // this would probably be done best with mapping to errors, but I couldn't get the
+        // selectSizes call to stop firing with stale data
+        var bestAR = dimensions.map(function(dim) { return findBestAR(dim.width, dim.height); });
+        bestAR.onValue(function(ar) {
+            if(ar === null) {
+                view.showBadImageError();
+            }
         });
 
-        // filling in form values from file input change
-        function fillInForm(width, height) {
-            $('#widthInput').val(width);
-            $('#heightInput').val(height);
-            var input = $("input[type=file]")[0].files[0].name;
-            $('#filename').text(input);
-            both = bacon.combineAsArray(width, height);
-            both.onValue(function(val) {
-                getImageSizes(val);
-            });
-        }
+        bestAR.map('.difference').map(formatCrop).assign($('#cropAmount'), 'text');
 
-        var input = $("input[type=file]").asEventStream('change').map(function(e) {
-            view.showLoader();
-            return getImageDimensions(e.target.files[0]);
-        });
-        
-        input.onValue(function(val) {
-            val.then(function(dimensions) {
-                fillInForm(dimensions.width, dimensions.height);
-            });
-        });
+        // I don't like this but am not sure that there's a cleaner way to do a combine.
+        var sizes = Bacon.combineWith(function(ar, dimensions) {
+                return ar ? ar.findSizes(dimensions, 130, 150) : null;
+            }, bestAR.map('.ratio'), dimensions).filter(bestAR);
+
+        sizes.map(selectSizes, 3).log().onValue(view.showSizes);
     });
 });
