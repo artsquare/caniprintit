@@ -5,7 +5,7 @@
 
     <groupId>com.artsquare.cipi</groupId>
     <artifactId>caniprintit</artifactId>
-    <version>2015.1.29-21</version>
+    <version>2015.1.29-22</version>
     <packaging>pom</packaging>
 
     <name>Can I Print It?</name>
