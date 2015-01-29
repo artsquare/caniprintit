@@ -4,7 +4,7 @@ define(['jquery', 'view/printSizeView'], function($, printSize) {
         for (var i in sizes) {
             var size = sizes[i];
             var domNode = printSize(size.quality, size.inches, size.dpi);
-            $("#" + i).html(domNode);
+            $("#result-div-" + i).html(domNode);
         }
     }
     return {
