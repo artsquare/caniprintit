@@ -13,20 +13,10 @@
 </head>
 <body>
 	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-		var js, fjs = d.getElementsByTagName(s)[0];
-		if (d.getElementById(id)) return;
-		js = d.createElement(s); js.id = id;
-		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0";
-		fjs.parentNode.insertBefore(js, fjs);
-	}(document, 'script', 'facebook-jssdk'));</script>
 	<div class="wrapper">
 		<div class="nav">
 			<div class="row">
 				<span class="social pull-left">
-					<script>
-						window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
-					</script>
 					<a href="http://www.facebook.com/sharer/sharer.php?u=https://caniprint.it&amp;title=Check out this awesome app!"><i class="fa fa-facebook social-icon"></i></a>
 					<a href="http://twitter.com/intent/tweet?status=Check out this awesome app! + https://caniprint.it"><i class="fa fa-twitter social-icon"></i></a>
 				</span>
@@ -125,6 +115,7 @@
 			</footer>
 		</div>
 	</div>
+
 	<div id="faq">
 		<div class="ex"><i class="fa fa-times"></i></div>
 		<div class="container">
@@ -143,15 +134,26 @@
 						<h2>Why 'Can I Print It?'</h2>
 						<p>Artists need high-quality images to assure high-quality prints. We've built
 							this tool to help identify whether your existing images are high enough
-							resolution to print.</p>
-						</div>
-					</div>
+							resolution to print.
+						</p>
 				</div>
 			</div>
-			<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
-			<script src="/js/common.js"></script>
-			<script>
-				require(['cipi/main']);
-			</script>
-		</body>
-		</html>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
+	<script src="/js/common.js"></script>
+	<script>
+		require(['cipi/main']);
+	</script>
+	<script>(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&amp;version=v2.0";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+					<script>
+						window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+					</script>
+</body>
+</html>
