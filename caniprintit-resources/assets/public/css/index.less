@@ -13,6 +13,10 @@
 .fa-circle-o-notch {
 	font-size: 40px;
 }
+html, body {
+	height: 100%;
+	overflow: auto;
+}
 body {
 	background-color: #f9f9f9 !important;
 	font-family: "Source Sans Pro", Helvetica, Verdana, sans-serif !important;
@@ -66,7 +70,7 @@ body {
 	margin: 0.15em;
 	font-size: 2.3em;
 }
-	
+
 .fa-twitter { padding: 0.05em 0.07em;}
 .fa-facebook {padding: 0.05em 0.3em; }
 hr {
@@ -208,13 +212,12 @@ h1 {
 #faq {
 	display: none;
 	position: absolute;
-	z-index: 100000;
+	z-index: 10000000;
 	left: 0;
-	right: 0;
 	top: 0;
 	width: 100% ;
 	height: 100%;
-	background-color: rgba(0, 0, 0, 0.9);
+	background-color: rgba(0, 0, 0, 0.88);
 	.faq-title {
 		margin-top: 5%;
 	}
