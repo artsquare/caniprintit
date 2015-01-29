@@ -19,7 +19,7 @@ define([], function() {
             '<h1>' + size[0] + '" x ' + size[1] + '"</h1>' + 
             '<p>DPI: ' + dpi.toFixed(0) + '</p>' + 
             '<div class="quality-description"><p>' + TEMPLATE[quality].message + '</p></div>' + 
-            '<div class="icon-' + quality + '"><i class="fa fa-' + TEMPLATE[quality].iconGlyph + '"></i></div>'
-            + '</div>';
+            '<div class="icon-' + quality + '"><i class="fa fa-' + TEMPLATE[quality].iconGlyph + '"></i></div>' +
+            '</div>';
     };
 });

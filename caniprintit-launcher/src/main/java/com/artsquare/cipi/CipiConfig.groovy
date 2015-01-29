@@ -7,4 +7,5 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("artsquare.cipi")
 class CipiConfig {
     String google
+    boolean suppressShares
 }
