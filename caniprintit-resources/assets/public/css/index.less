@@ -76,11 +76,11 @@ hr {
 	width: 50%;
 }
 .content {
-	margin-top: 30%;
-	@media(min-width: 480px) {margin-top: 28%;}
-	@media(min-width: 600px) {margin-top: 25%;}
-	@media(min-width: 780px) {margin-top: 15%;}
-	@media(min-width: 1200px) {margin-top: 2%;}
+	margin-top: 15%;
+	@media(min-width: 480px) {margin-top: 10%;}
+	//@media(min-width: 600px) {margin-top: 25%;}
+	@media(min-width: 780px) {margin-top: 5%;}
+	//@media(min-width: 1200px) {margin-top: 2%;}
 }
 h1 {
 	font-weight: 300 !important;
@@ -105,8 +105,11 @@ h1 {
 	border: 3px dashed #5c008f;
 	color: #5c008f;
 	border-radius: 14px;
-	margin-top: 6%;
-	// height: 300px;
+	margin-top: 4%;
+}
+div.upload {
+	min-height: 174px;
+	padding-top: 32px;
 }
 .upload input[type=file] {
 	position: absolute;
@@ -135,9 +138,9 @@ h1 {
 		}
 	}
 }
-.icon-success, .icon-failure, .icon-okay {
-	top: -42px;
-	right: -14px;
+.icon-good, .icon-okay, .icon-bad {
+	top: -24px;
+	right: -9px;
 	position: absolute;
 	width: 50px;
 	height: 50px; 
@@ -146,25 +149,25 @@ h1 {
 	background-color: white;
 	border-radius: 1000px;
 }
-.icon-success {
+.icon-good {
 	color: #5dbc00;
 	padding: 10px;
 	border: 2px solid #5dbc00;
 }
-.icon-success i, .icon-failure i, .icon-okay i{
+.icon-good i, .icon-okay i, .icon-bad i{
 	position: absolute;
 	font-size: 40px;
 }
-.icon-success i {
-	top: 2px;
-	left: 2px;
+.icon-good i {
+	top: 4px;
+	left: 0px;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
 }
 .icon-okay i {
-	top: 2px;
-	left: 2px;
+	top: 5px;
+	left: 0px;
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
@@ -174,12 +177,12 @@ h1 {
 	padding: 10px;
 	border: 2px solid #DC5800;
 }
-.icon-failure {
+.icon-bad {
 	padding: 10px;
 	border: 2px solid #bc0011;
 }
-.icon-failure i {
-	top: 4px;
+.icon-bad i {
+	top: 2px;
 	color: #bc0011;
 	left: 0;
 	right: 0;

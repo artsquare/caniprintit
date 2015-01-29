@@ -2,9 +2,9 @@ define(['jquery', 'view/printSizeView'], function($, printSize) {
     
     function createDomNodes (sizes) {
         for (var i in sizes) {
-            var size = sizes[i];
+            var size = sizes[i];            
             var domNode = printSize(size.quality, size.inches, size.dpi);
-            $("#" + i).html(domNode);
+            $("#result-div-" + i).html(domNode);
         }
     }
     return {
@@ -12,10 +12,15 @@ define(['jquery', 'view/printSizeView'], function($, printSize) {
             $('.loader').hide();
             $('.template').show();
             $('.badImageError').fadeOut();
+            for(var i = 0; i < 3; i++) {
+                $("#result-div-" + i).empty();
+            }
             createDomNodes(sizes);
         },
         showBadImageError: function() {
+            console.log("sbie");
             $('.loader').hide();
+            $('.template').hide();
             $('.badImageError').fadeIn();
         },
         showLoader: function() {
