@@ -3,12 +3,14 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
     function($, bacon, bjq, findBestAR, AspectRatio, vow, getImageDimensions, selectSizes, view) {
 
     $(document).ready(function() {
+        
         $('.faq').click(function() {
             $('#faq').fadeIn();
         });
         $('#faq').click(function() {
             $('#faq').fadeOut();
-        })
+        });
+
         function getImageSizes(val) {
             return new vow.Promise(function(resolve, reject){
                 if (val[0] > 0 && val[1] > 0) {
