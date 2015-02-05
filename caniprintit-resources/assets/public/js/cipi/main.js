@@ -1,13 +1,13 @@
 define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printanalyzer/AspectRatio',
-    'vow', 'filereader/getImageDimensions', 'cipi/selectSizes', 'view/showView'],
-    function($, Bacon, bjq, findBestAR, AspectRatio, vow, getImageDimensions, selectSizes, view) {
+    'vow', 'filereader/getImageDimensions', 'cipi/selectSizes', 'view/showView', 'cipi/mobileCheck', 'cipi/keenImage'],
+    function($, Bacon, bjq, findBestAR, AspectRatio, vow, getImageDimensions, selectSizes, view, isMobile, keenImage) {
 
     function formatCrop(crop) {
         return (undefined === crop || isNaN(crop)) ? '--' : (crop * 100).toFixed(1) + "%";
     }
 
     $(document).ready(function() {
-        
+        var keenObj = {};
         $('.faq').click(function() {
             $('.content').hide();
             $('#faq').fadeIn();
@@ -26,9 +26,15 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
 
         // update the dimensions atomically when setting from a file input
         var dimensions = Bacon.combineTemplate({ width: width, height: height }).debounce(10);
-
+        dimensions.onValue(function(val) {
+            keenObj.height = val.height;
+            keenObj.width = val.width;
+            keenImage(keenObj.width, keenObj.height, keenObj.imageName, isMobile(), navigator.userAgent);
+        });
         var inputFile = $('#fileInput').changeE().map('.target.files.0');
-
+        inputFile.onValue(function(val) {
+            keenObj.imageName = val.name;
+        });
         // stream to reset the filename field on manual entry
         var nameReset = Bacon.mergeAll(
                 $('#widthInput').focusinE(),

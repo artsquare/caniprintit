@@ -7,5 +7,7 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties("artsquare.cipi")
 class CipiConfig {
     String google
+    String keenWriteKey
+    String keenProjectKey
     boolean suppressShares
 }
