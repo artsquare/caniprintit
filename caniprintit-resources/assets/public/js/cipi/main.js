@@ -37,7 +37,7 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
             $('.template-modal').click(function() {
                 $('.template').fadeOut();
                 $('.template-modal').fadeOut();
-            })
+            });
         $('.faq').click(function() {
             $('.content').hide();
             $('#faq').fadeIn();
