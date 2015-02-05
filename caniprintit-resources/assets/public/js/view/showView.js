@@ -9,8 +9,11 @@ define(['jquery', 'view/printSizeView'], function($, printSize) {
     }
     return {
         showSizes: function(sizes) {
-            $('.loader').hide();
-            $('.template').show();
+            $('.width').text($('#widthInput').val());
+            $('.height').text($('#heightInput').val());
+            $('.flash-title').removeClass('hidden');
+            $('.template').fadeIn();
+            $('.template-modal').fadeIn();
             $('.badImageError').fadeOut();
             for(var i = 0; i < 3; i++) {
                 $("#result-div-" + i).empty();
@@ -18,20 +21,8 @@ define(['jquery', 'view/printSizeView'], function($, printSize) {
             createDomNodes(sizes);
         },
         showBadImageError: function() {
-            console.log("sbie");
             $('.loader').hide();
-            $('.template').hide();
             $('.badImageError').fadeIn();
-        },
-        showLoader: function() {
-            var dots = window.setInterval( function() {
-                var wait = document.getElementById("wait");
-                if ( wait.innerHTML.length > 6 ) 
-                    wait.innerHTML = "";
-                else 
-                    wait.innerHTML += ".";
-            }, 200);
-            $(".loader").fadeIn();
         }
     };
 });

@@ -8,6 +8,36 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
 
     $(document).ready(function() {
         var keenObj = {};
+            var showImageInfo = false;
+            var info = $('#viewInfo').clickE();
+            var infoShowing = false;
+            info.onValue(function(e) {
+                e.preventDefault();
+                if (infoShowing) {
+                    $('.info').slideUp('fast');
+                    $('#viewInfo').text('Show Image Info');
+                    infoShowing = false;
+                } else {
+                    $('#viewInfo').text('Hide Image Info');
+                    $('.info').slideDown('fast');
+                    infoShowing = true;
+                }
+            });
+            var form = $('#showForm').clickE();
+            var formShowing = false;
+            form.onValue(function() {
+                if (formShowing) {
+                    $('form').fadeOut();
+                    formShowing = false;
+                } else {
+                    $('form').fadeIn();
+                    formShowing = true;
+                }
+            });
+            $('.template-modal').click(function() {
+                $('.template').fadeOut();
+                $('.template-modal').fadeOut();
+            })
         $('.faq').click(function() {
             $('.content').hide();
             $('#faq').fadeIn();
