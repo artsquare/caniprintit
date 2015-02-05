@@ -1,5 +1,62 @@
-.template, .badImageError {display: none;}
+.ex{
+		margin-right: 10px;
+		margin-topgi: 10px;
+	}
+	.fa-times {
+		font-size: 40px;
+		color: white;
+		float: right;
+		&:hover {
+			cursor: pointer;
+		}
+	}
+.template-modal {
+	.close {
+		right: 20%;
+		top: 5%;
+		color: white !important;
+	}
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100% ;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.88);
+	overflow: scroll;
+}
+.info {display: none;}
+.loader {
+	display: none;
+	position: absolute;
+	margin-top: 20% !important;
+	left: 50% !important;
+	right: 5px;
+}
+.fb-share-button {
+	top: -5px;
+}
+.fa-chevron-right {
+	margin-top: 5px !important;
+	position: absolute;
+	margin-left: 10px !important;
+}
+.back {
+	float: left;
+	display: none;
+	.btn {
+		border-radius: 0px !important;
+		color: white !important;
+		transition: .1s;
+		background-color: #5C008F !important;
+		&:hover {
+			background-color: #663399 !important;
+			color: white !important;
+		}
+	}
+}
 .badImageError {
+	display: none;
 	position: absolute !important;
 	color: #bc0011;
 }
@@ -17,7 +74,7 @@ html, body {
 	height: 100%;
 }
 body {
-	background-color: #f9f9f9 !important;
+	background-color: #dfdfdf !important;
 	font-family: "Source Sans Pro", Helvetica, Verdana, sans-serif !important;
 	.title {
 		visibility: hidden;
@@ -35,12 +92,13 @@ body {
 	}
 }
 .wrapper {
-	border: 15px solid #f9f9f9;
+	border: 10px solid #dfdfdf;
+	bottom: 0;
+	height: 100%;
 	@media(min-width: 768px) {
-		border: 15px solid #f9f9f9;
+		border: 10px solid #f9f9f9;
 		padding: 10px;
-		height: 100%;
-		position: absolute;
+		position: relative !important;
 		width: 100%;
 	}
 	li {
@@ -50,7 +108,7 @@ body {
 .faq {
 	display: inline;
 	font-size: 18px;
-	margin-right: 10px;
+	margin-right: 20px;
 	@media(min-width: 768px) {margin-top: 0;}
 	.information {
 		display: none;
@@ -61,17 +119,10 @@ body {
 		border: 1px solid black
 	}
 }
-.social-icon {
-	margin-left: 10px;
-	display: inline-block;
-	border: 2px solid #5C008F;
-	border-radius: 50%;
-	margin: 0.15em;
-	font-size: 2.3em;
+.nav {
+	margin-left: 20px;
 }
 
-.fa-twitter { padding: 0.05em 0.07em;}
-.fa-facebook {padding: 0.05em 0.3em; }
 hr {
 	width: 50%;
 }
@@ -81,12 +132,14 @@ hr {
 	//@media(min-width: 600px) {margin-top: 25%;}
 	@media(min-width: 780px) {margin-top: 5%;}
 	//@media(min-width: 1200px) {margin-top: 2%;}
+	position: relative;
 }
 h1 {
 	font-weight: 300 !important;
 	font-size: 56px !important;
 }
 .as-title {
+	top: 0;
 	p { font-size: 20px; }
 }
 .landscape {
@@ -94,10 +147,14 @@ h1 {
 	margin-top: 2.5%;
 	fill: blue;
 }
-.upload-fields {
-	// margin-top: 4%;
 	form {
 		margin-top: 4%;
+		display: none;
+		position: absolute;
+		width: 100%;
+		text-align: left;
+		@media(min-width: 768px) {
+			width: 75%;
 	}
 }
 .upload {
@@ -127,19 +184,44 @@ div.upload {
 	font-size: 28px;
 }
 .template {
-	position: relative;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	margin-left:auto;
+	margin-top: 40%;
+	margin-right:auto;
+	z-index: 1000;
+	position: absolute;
+	display: none;
+	width: 100% !important;
+	@media(min-width: 480px) {margin-top: 25%;}
+	@media(min-width: 768px) {
+		margin-top: auto;
+		width: 80% !important;
+	}
+	background-color: white;
+	height: auto;
+	border: 2px solid rgba(0, 0, 0, 0.2);
+	border-radius: 15px;
+	padding-bottom: 10px;
+	overflow-x: hidden; 
+	overflow-y: scroll;
+	.print-sizes {padding: 10px;}
 	.print-sizes .col-sm-4 {
-		margin-top: 10%;
-		@media(min-width: 768px) {margin-top: 8%;}
+	
+		padding: 15px;
+		margin-top: 5%;
+		h1 {
+			font-size: 24px !important;
+		}
 		.quality-description {
 			font-weight: bold;
-			padding-left: 5px;
-			padding-right: 5px;
+			padding: 4px;
 		}
 	}
 }
 .icon-good, .icon-okay, .icon-bad {
-	top: -24px;
+	top: -12px;
 	right: -9px;
 	position: absolute;
 	width: 50px;
@@ -204,6 +286,10 @@ div.upload {
 .push {
 	height: 150px;
 }
+.good, .bad, .okay {text-align: center;}
+.push {
+	height: 150px;
+}
 .about-wrapper {
 	position: relative;
 	width: 100%;
@@ -224,18 +310,6 @@ div.upload {
 	.faq-title {
 		margin-top: 5%;
 	}
-	.ex{
-		margin-right: 10px;
-		margin-topgi: 10px;
-	}
-	.fa-times {
-		font-size: 40px;
-		color: white;
-		float: right;
-		&:hover {
-			cursor: pointer;
-		}
-	}
 	p {
 		font-size: 20px;
 	}
@@ -244,15 +318,16 @@ div.upload {
 	}
 }
 .action {
-	margin-top: 2%;
 }
 .as-action {
-	border-radius: 5px !important;
-	border: 1px solid #5C008F !important;
-	color: #5C008F;
-	&:hover {
+	border-radius: 0px !important;
+	height: 50px;
+	width: 250px;
+	color: white !important;
+	transition: .1s;
 		background-color: #5C008F !important;
-		border: 1px solid white !important;
+	&:hover {
+		background-color: #663399 !important;
 		color: white !important;
 	}
 }
