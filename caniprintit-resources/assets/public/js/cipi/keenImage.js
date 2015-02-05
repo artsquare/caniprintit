@@ -1,13 +1,13 @@
-define([], function() {
+define(['cipi/keenConfig'], function(keenClient) {
     'use strict';
 
-    return function(width, height, imageName, isMobile, userAgent) {
+    return function(width, height, imageType, isMobile, userAgent) {
         keenClient.addEvent("imageMetaData", {
             width: width,
             height: height,
-            imageName: imageName,
+            imageType: imageType,
             isMobile: isMobile,
             userAgent: userAgent
         });
-    }
+    };
 });
