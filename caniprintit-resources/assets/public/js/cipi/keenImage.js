@@ -2,7 +2,7 @@ define(['cipi/keenConfig'], function(keenClient) {
     'use strict';
 
     return function(width, height, imageType, isMobile, userAgent) {
-        keenClient.addEvent("imageMetaData", {
+        keenClient.addEvent(window.keenCollection, {
             width: width,
             height: height,
             imageType: imageType,
