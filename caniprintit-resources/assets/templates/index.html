@@ -20,10 +20,6 @@
     <div class="wrapper">
         <div class="nav">
             <div class="row">
-                <span class="social pull-left" data-th-unless="${beans.cipiConfig.suppressShares}">
-                    <div class="fb-share-button" data-href="https://caniprint.it" data-layout="button"></div>
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-                </span>
                 <span class="faq pull-right">
                     <a href="#">FAQ</a>
                 </span>
@@ -103,9 +99,17 @@
                 <div class="row">
                     <div class="action col-xs-12 text-center">
                         <h3><b>Want better prints of your art?</b></h3>
-                        <a href="https://www.artsquare.com"><button class='btn btn-lg btn-default as-action'>Get High-Res Images!</button></a>
+                        <a href="https://www.artsquare.com"><button class='btn btn-lg btn-default as-action'>Get High-Res Images!<i class="fa fa-chevron-right"></i></button></a>
                     </div>
                 </div>
+            </div>
+            
+            <div class="col-xs-12 text-center social">
+                <h5>Share this tool with your friends -- they'll love you for it!</h5>
+                <span data-th-unless="${beans.cipiConfig.suppressShares}">
+                    <div class="fb-share-button" data-href="https://caniprint.it" data-layout="button"></div>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+                </span>
             </div>
 
             <div class="push"></div>
