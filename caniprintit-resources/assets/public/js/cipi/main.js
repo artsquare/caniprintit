@@ -30,12 +30,13 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
             keenObj.height = val.height;
             keenObj.width = val.width;
             if ($('#filename').text() !== 'manual size') {
-                keenImage(keenObj.width, keenObj.height, keenObj.imageType, isMobile(), navigator.userAgent);
+                keenImage(keenObj.width, keenObj.height, keenObj.imageType, keenObj.fileSize, window.clientIp, isMobile(), navigator.userAgent);
             }
         });
         var inputFile = $('#fileInput').changeE().map('.target.files.0');
         inputFile.onValue(function(val) {
-            keenObj.imageType = val.type;
+            keenObj.imageType = val.type.replace(/^image\//, '');
+            keenObj.fileSize = val.size;
         });
         // stream to reset the filename field on manual entry
         var nameReset = Bacon.mergeAll(

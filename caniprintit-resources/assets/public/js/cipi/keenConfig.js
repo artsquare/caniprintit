@@ -1,5 +1,5 @@
 define(['keen'], function(keen) {
-    if (window.keenProjectKey && window.keenWriteKey) {
+    if (window.keenProjectKey && window.keenWriteKey && window.keenCollection) {
         var client = new Keen({
             projectId: keenProjectKey,
             writeKey: keenWriteKey,
