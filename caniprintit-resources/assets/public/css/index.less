@@ -10,6 +10,12 @@
 	top: 70%; left: 0; bottom: 0; right: 0;
 	z-index: 500;
 }
+#logo {
+	@media(min-width: 768px) {
+		width: 50%;
+	}
+	width: 100%;
+}
 .fa-circle-o-notch {
 	font-size: 40px;
 }
@@ -64,17 +70,11 @@ body {
 		border: 1px solid black
 	}
 }
-.social-icon {
-	margin-left: 10px;
-	display: inline-block;
-	border: 2px solid #5C008F;
-	border-radius: 50%;
-	margin: 0.15em;
-	font-size: 2.3em;
+.social {
+	margin-top: 4%;
+	@media(min-width: 768px) {margin-top: 2%;}
+	display: none;
 }
-
-.fa-twitter { padding: 0.05em 0.07em;}
-.fa-facebook {padding: 0.05em 0.3em; }
 hr {
 	width: 50%;
 }
@@ -90,7 +90,10 @@ h1 {
 	font-size: 56px !important;
 }
 .as-title {
-	p { font-size: 20px; }
+	p { 
+		margin-top: 2%;
+		font-size: 20px; 
+	}
 }
 .landscape {
 	position: relative;
@@ -248,14 +251,21 @@ div.upload {
 }
 .action {
 	margin-top: 2%;
+	.fa-chevron-right {
+	margin-top: 5px !important;
+	position: absolute;
+	margin-left: 10px !important;
+}
 }
 .as-action {
-	border-radius: 5px !important;
-	border: 1px solid #5C008F !important;
-	color: #5C008F;
-	&:hover {
+	border-radius: 0px !important;
+	height: 50px;
+	width: 250px;
+	color: white !important;
+	transition: .1s;
 		background-color: #5C008F !important;
-		border: 1px solid white !important;
+	&:hover {
+		background-color: #663399 !important;
 		color: white !important;
 	}
 }
