@@ -12,7 +12,7 @@ class CipiConfig {
 
     static class Keen {
         String writeKey
-        String projectKey
+        String projectId
         String collection
     }
 }
