@@ -20,8 +20,8 @@
         <div class="nav">
             <div class="row">
                 <span class="social pull-left" data-th-unless="${beans.cipiConfig.suppressShares}">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://caniprint.it&amp;title=See if your art images are print-ready!"><i class="fa fa-facebook social-icon"></i></a>
-                    <a href="https://twitter.com/intent/tweet?status=See if your art images are print-ready! + https://caniprint.it"><i class="fa fa-twitter social-icon"></i></a>
+                    <div class="fb-share-button" data-href="https://caniprint.it" data-layout="button"></div>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
                 </span>
                 <span class="faq pull-right">
                     <a href="#">FAQ</a>
@@ -151,15 +151,20 @@
     <!-- Facebook sharing -->
     <div id="fb-root"></div>
     <script>
-    // <![CDATA[
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    // ]]>
+        window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '1778542555703490',
+              xfbml      : true,
+              version    : 'v2.1'
+          });
+        };
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/sdk.js";
+           fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <!-- Twitter sharing -->
