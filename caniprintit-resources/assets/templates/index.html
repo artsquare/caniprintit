@@ -160,11 +160,8 @@
     </script>
     <script src="https://d26b395fwzu5fz.cloudfront.net/3.2.2/keen.min.js" type="text/javascript"></script>
     <script data-th-if="${beans.cipiConfig.keenWriteKey}" data-th-inline="javascript">
-        var keenClient = new Keen({
-            projectId: [[${beans.cipiConfig.keenProjectKey}]],
-            writeKey: [[${beans.cipiConfig.keenWriteKey}]],
-            protocol: "https"
-        });
+            var keenProjectKey = [[${beans.cipiConfig.keenProjectKey}]];
+            var keenWriteKey = [[${beans.cipiConfig.keenWriteKey}]];
     </script>
     <script data-th-if="${beans.cipiConfig.google}" data-th-inline="javascript">
     // <![CDATA[

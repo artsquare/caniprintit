@@ -6,7 +6,8 @@ require.config({
         'vow': 'vendor/vow/lib/vow',
         'bacon': 'vendor/bacon/dist/Bacon',
         'bacon.jquery': 'vendor/bacon.jquery/dist/bacon.jquery',
-        'bacon.model': 'vendor/bacon.model/dist/bacon.model'
+        'bacon.model': 'vendor/bacon.model/dist/bacon.model',
+        'keen': 'https://d26b395fwzu5fz.cloudfront.net/3.2.2/keen.min'
     },
     shim: {
         'bootstrap': {
