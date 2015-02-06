@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 class CipiController {
     @RequestMapping
     String index(Model model, ServletRequest request, @RequestHeader(value = 'X-Forwarded-For', required = false) String forwardedIp) {
-        model.addAttribute('clientIp', forwardedIp ?: request.remoteAddr)
+        model.addAttribute('clientIp', forwardedIp ? forwardedIp.split(', ')[0] : request.remoteAddr)
         "index"
     }
 }
