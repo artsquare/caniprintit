@@ -171,7 +171,7 @@
     <script data-th-if="${beans.cipiConfig.keen}" src="https://d26b395fwzu5fz.cloudfront.net/3.2.2/keen.min.js"></script>
     <script data-th-if="${beans.cipiConfig.keen}" data-th-inline="javascript">
             var clientIp = [[${clientIp}]];
-            var keenProjectKey = [[${beans.cipiConfig.keen.projectKey}]];
+            var keenProjectId = [[${beans.cipiConfig.keen.projectId}]];
             var keenWriteKey = [[${beans.cipiConfig.keen.writeKey}]];
             var keenCollection = [[${beans.cipiConfig.keen.collection}]];
     </script>

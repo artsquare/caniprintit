@@ -1,7 +1,7 @@
 define(['keen'], function(keen) {
-    if (window.keenProjectKey && window.keenWriteKey && window.keenCollection) {
+    if (window.keenProjectId && window.keenWriteKey && window.keenCollection) {
         var client = new Keen({
-            projectId: keenProjectKey,
+            projectId: keenProjectId,
             writeKey: keenWriteKey,
             protocol: "https"
         });
