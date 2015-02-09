@@ -12,7 +12,9 @@ define(['jquery', 'view/printSizeView'], function($, printSize) {
             $('.loader').hide();
             $('.template').show();
             $('.badImageError').fadeOut();
-            $('.social').fadeIn();
+            $('.social').animate({
+                'opacity': 1
+            });
             for(var i = 0; i < 3; i++) {
                 $("#result-div-" + i).empty();
             }
