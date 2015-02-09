@@ -9,6 +9,8 @@
     <meta property="og:url" content="https://caniprint.it/" />
     <meta property="og:image" content="https://media.artsquare.com/cipi/caniprintit-logo-og-1200.png" />
 
+    <link rel="canonical" href="https://caniprint.it/" />
+
     <link rel="stylesheet" type="text/css" href="/css/index.css" />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
@@ -108,7 +110,11 @@
                 <h3><b>Share this tool with your friends -- they'll love you for it!</b></h3>
                 <span data-th-unless="${beans.cipiConfig.suppressShares}">
                     <div class="fb-share-button" data-href="https://caniprint.it" data-layout="button"></div>
-                    <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
+                    <!--/* https://dev.twitter.com/web/tweet-button */-->
+                    <a href="https://twitter.com/share" class="twitter-share-button"
+                      data-text="Are your art images print resolution? Find out instantly with Can I Print It?"
+                      data-count="none"
+                      data-related="artsquareapp">Tweet</a>
                 </span>
             </div>
 
