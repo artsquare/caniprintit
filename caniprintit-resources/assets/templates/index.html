@@ -40,7 +40,8 @@
                     <div class="col-xs-12 col-sm-6 col-lg-4 col-lg-offset-2">
                         <div class="upload text-center">
                             <img src="https://media.artsquare.com/cipi/landscape.svg" class='landscape' width='80' alt='icon of image'/>
-                            <div class="upload-title">Drop your image or click here.</div>
+                            <div class="upload-title hidden-xs hidden-sm">Drop your image or click here.</div>
+                            <div class="upload-title visible-xs visible-sm">Tap here to select a photo.</div>
                             <input type="file" accept="image/*" id='fileInput' />
                         </div>
                     </div>
@@ -48,7 +49,7 @@
                         <form class="form-horizontal">
                             <input type="hidden" name="goodDPI" value='150' />
                             <input type="hidden" name="okayDPI" value='120' />
-                            <div class="form-group">
+                            <div class="form-group hidden-xs hidden-sm">
                                 <label for="filename" class="col-sm-4 control-label">file name</label>
                                 <div class="col-sm-8">
                                     <p class='form-control-static input-group' id='filename'>--</p>
@@ -68,7 +69,7 @@
                                     <span class="input-group-addon">px</span>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group hidden-xs hidden-sm">
                                 <label class="col-sm-4 control-label">crop needed</label>
                                 <div class="col-sm-8">
                                     <p class='form-control-static input-group' id='cropAmount'>--</p>
