@@ -29,9 +29,6 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
         dimensions.onValue(function(val) {
             keenObj.height = val.height;
             keenObj.width = val.width;
-            if ($('#filename').text() !== 'manual size') {
-                keenImage(keenObj.width, keenObj.height, keenObj.imageType, keenObj.fileSize, window.clientIp, isMobile(), navigator.userAgent);
-            }
         });
         var inputFile = $('#fileInput').changeE().map('.target.files.0');
         inputFile.onValue(function(val) {
@@ -59,6 +56,10 @@ define(['jquery', 'bacon', 'bacon.jquery', 'printanalyzer/findBestAR', 'printana
         bestAR.onValue(function(ar) {
             if(ar === null) {
                 view.showBadImageError();
+            }
+            keenObj.aspectRatio = ar.ratio.label;
+            if ($('#filename').text() !== 'manual size') {
+                keenImage(keenObj.width, keenObj.height, keenObj.imageType, keenObj.fileSize, keenObj.aspectRatio, window.clientIp, isMobile(), navigator.userAgent);
             }
         });
 
