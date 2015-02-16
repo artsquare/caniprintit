@@ -11,11 +11,11 @@
 
     <link rel="canonical" href="https://caniprint.it/" />
 
-    <link rel="stylesheet" type="text/css" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/index.css" data-th-href="@{/css/index.css}"/>
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css" />
     <!-- <link rel="stylesheet" type="text/css" href="/bootstrap/bootstrap.min.css" /> -->
 </head>
 <body>
@@ -154,8 +154,9 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js" data-main='main'></script>
-    <script src="/js/common.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.15/require.min.js"></script>
+    <script data-th-src="@{/js/common.js}"></script>
+    <script data-th-src="@{/js/main.js}"></script>
 
     <!-- Facebook sharing -->
     <div id="fb-root"></div>
