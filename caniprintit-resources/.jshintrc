@@ -1,0 +1,16 @@
+{
+  "curly": true,
+  "eqeqeq": true,
+  "undef": true,
+  "browser": true,
+  "devel": true,
+  "globals": {
+    "jquery": false,
+    "define": false,
+    "document": false,
+    "setTimeout": false,
+    "location": false,
+    "window": false,
+    "require": false
+  }
+}
