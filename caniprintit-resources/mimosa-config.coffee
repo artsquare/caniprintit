@@ -15,6 +15,7 @@ exports.config =
         exclude: [
             "public/bootstrap/bootstrap.min.js"
             "public/js/tiff-js/TIFFParser.js"
+            "public/js/cipi/mobileCheck.js"
         ],
         compiled: true,
         copied: true,
@@ -31,7 +32,17 @@ exports.config =
     require:
         optimize:
             overrides:
-                name: "vendor/requirejs/require"
+                name: null # turns off Almond and uses r.js instead
+                paths:
+                    jquery: 'empty:'
+                    bootstrap: 'empty:'
+                    keen: 'empty:'
+#                generateSourceMaps: true
+#                incompatible with preserveLicenseComments; FIXME
+            modules: [
+                { name: "main" }
+            ]
+
                 
     csslint:
         exclude: ["public/bootstrap/bootstrap.min.css"]
