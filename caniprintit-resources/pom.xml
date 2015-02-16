@@ -45,6 +45,7 @@
                             <arguments>
                                 <argument>build</argument>
                                 <argument>--errorout</argument>
+                                <argument>--optimize</argument>
                             </arguments>
                         </configuration>
                     </execution>

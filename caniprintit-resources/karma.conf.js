@@ -16,7 +16,9 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       'https://code.jquery.com/jquery-2.1.1.min.js',
+      'https://d26b395fwzu5fz.cloudfront.net/3.2.2/keen.min.js',
       'test/test-main.js',
+      'target/classes/public/js/main.js',
       {pattern: 'test/**/*Spec.js', included: false},
       {pattern: 'target/classes/public/js/**/*.js', included: false},
       {pattern: 'test/img/**/*', included: false}

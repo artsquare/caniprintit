@@ -29,10 +29,12 @@ define(['jquery', 'view/printSizeView'], function($, printSize) {
         showLoader: function() {
             var dots = window.setInterval( function() {
                 var wait = document.getElementById("wait");
-                if ( wait.innerHTML.length > 6 ) 
+                if ( wait.innerHTML.length > 6 ) {
                     wait.innerHTML = "";
-                else 
+                }
+                else {
                     wait.innerHTML += ".";
+                }
             }, 200);
             $(".loader").fadeIn();
         }
