@@ -1,2 +1,32 @@
-# caniprintit
-Can I Print It?
+# Can I Print It? by ArtSquare
+Christopher Smith <christopher.smith@artsquare.com>
+
+This repository contains the source for the https://caniprint.it/[Can I Print It?] Web application
+sponsored by https://www.artsquare.com[ArtSquare]. The application opens a local image file using
+the JavaScript File API, determines the image's size in pixels, and calculates what standard
+print sizes are suitable based on aspect ratio and DPI.
+
+## Project layout
+
+Can I Print It? is a Spring Boot application serving a mostly-static single-page modeless site.
+Maven is used as the top-level build system, and the `spring-boot:repackage` goal is run in 
+link:caniprintit-launcher/[the launcher module] to produce a runnable jar.
+
+The bulk of the code is contained in link:caniprintit-resources/[the resources module], which is
+a http://mimosa.io[Mimosa] project. Maven simply installs and invokes Mimosa to process the Web
+resources and then copies the output into a Web jar for the launcher.
+
+## Building and running
+
+This project requires Java 7 or higher, Maven 3.1 or higher, and NodeJS v0.10.35 or higher
+(including NPM 2). No other dependencies need to be installed.
+
+Run the command `mvn package` from the project root directory. Maven will install the Node and
+Bower packages needed for Mimosa to run. The result of the build will be a self-contained
+executable jar in link:caniprintit-launcher/target/ that can be run with `java -jar`.
+
+After Mimosa is set up, resources can be processed in development mode by running
+`./node_modules/mimosa/bin/mimosa watch` from the `caniprintit-resources` module directory.
+Runtime resource refresh requires that Maven serve the Java classpath out of the on-disk layout
+instead of the packaged jar for `caniprintit-resources`; the ArtSquare team uses m2eclipse
+workspace resolution to handle this.
